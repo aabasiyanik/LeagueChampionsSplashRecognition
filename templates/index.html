@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier</title>
+    <style>
+        body {
+            background-color: #9F91CC;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #5C4B99;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Button Styles */
+        button {
+            font-family: 'Marcellus SC', serif;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 10px 20px; 
+            background: #1e2328;
+            color: #cdbe91;
+            box-shadow: inset 0 0 2px #000000;
+            border-image: linear-gradient(to bottom, #c8aa6d, #7a5c29);
+            border-image-slice: 1;
+            border-width: 2px;
+            margin-top: 20px;
+        }
+        button:hover {
+            text-shadow: 0 0 5px #ffffff80;
+            box-shadow: 0 0 8px 0 #ffffff50;
+            background: linear-gradient(to bottom, #1e2328, #433d2b);
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        button:active {
+            text-shadow: none;
+            box-shadow: none;
+            color: #cdbe9130;
+        }
+        .image-button {
+            /* Add the provided CSS styles here */
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+
+        .image-button:not([disabled]):focus {
+            /* Add the focus styles here */
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .image-button:not([disabled]):hover {
+            /* Add the hover styles here */
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Classifier</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <!-- Replace the file input with a styled button -->
+        <label for="imageInput" class="image-button">
+            <input type="file" name="image" id="imageInput" style="display: none;">
+            Choose Image
+        </label>
+        <input type="submit" value="Predict">
+    </form>
+    <div>
+        <p>Class: <span id="class"></span></p>
+        <p>Confidence Score: <span id="confidence"></span></p>
+        <!-- Replace the Start Over link with the Start Over button -->
+        <button onclick="window.location.href='/start_over'">Start Over</button>
+    </div>
+    
+    <script>
+        function validateForm() {
+            var imageInput = document.getElementById("imageInput");
+            if (imageInput.files.length === 0) {
+                alert("No image selected");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
