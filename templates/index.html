@@ -24,7 +24,6 @@
         a:hover {
             text-decoration: underline;
         }
-        /* Button Styles */
         button {
             font-family: 'Marcellus SC', serif;
             font-size: 18px;
@@ -52,8 +51,7 @@
             color: #cdbe9130;
         }
         .image-button {
-            /* Add the provided CSS styles here */
-            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            background: linear-gradient(to bottom right, #5C4B99, #3D246C);
             border: 0;
             border-radius: 12px;
             color: #FFFFFF;
@@ -75,32 +73,90 @@
         }
 
         .image-button:not([disabled]):focus {
-            /* Add the focus styles here */
-            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(92, 75, 153, 0.5), .125rem .125rem 1rem rgba(61, 36, 108, 0.5);
         }
 
         .image-button:not([disabled]):hover {
-            /* Add the hover styles here */
-            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(92, 75, 153, 0.5), .125rem .125rem 1rem rgba(61, 36, 108, 0.5);
+        }
+
+        .predict-btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .predict-btn-link {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(174, 152, 92, 0.45);
+            border-radius: 2rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .predict-btn-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0.5rem rgba(174, 152, 92, 0.45);
+        }
+
+        .predict-btn-circle {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ae985c;
+            border-radius: 50%;
+            background: #2d3a46;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .predict-btn-circle p {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .predict-btn-rectangle {
+            padding: 0.5rem 1.5rem;
+            border: 3px solid rgba(125, 140, 154, 0.82);
+            background: #2d3a46;
+            color: rgba(125, 140, 154, 0.82);
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-left: 0.3rem;
         }
     </style>
 </head>
 <body>
     <h1>Image Classifier</h1>
     <form action="/predict" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-        <!-- Replace the file input with a styled button -->
+        
         <label for="imageInput" class="image-button">
             <input type="file" name="image" id="imageInput" style="display: none;">
             Choose Image
         </label>
-        <input type="submit" value="Predict">
     </form>
     <div>
-        <p>Class: <span id="class"></span></p>
+        <p>Champion: <span id="class"></span></p>
         <p>Confidence Score: <span id="confidence"></span></p>
-        <!-- Replace the Start Over link with the Start Over button -->
-        <button onclick="window.location.href='/start_over'">Start Over</button>
+        
+        
     </div>
+    <div class="predict-btn-container">
+        <button type="button" class="predict-btn-link" id="styledPredictBtn">
+            <div class="predict-btn-circle">
+                <p>→</p>
+            </div>
+            <div class="predict-btn-rectangle">
+                Predict
+            </div>
+        </button>
+        
+    </div>
+    <div><button onclick="window.location.href='/start_over'">Start Over</button></div>
     
     <script>
         function validateForm() {
@@ -111,6 +167,19 @@
             }
             return true;
         }
+    </script>
+    <script>
+        // Function to handle the styled "Predict" button click
+        document.getElementById("styledPredictBtn").addEventListener("click", function() {
+            var imageInput = document.getElementById("imageInput");
+            if (imageInput.files.length === 0) {
+                alert("No image selected");
+                return;
+            }
+            // Submit the form programmatically
+            var form = imageInput.closest("form");
+            form.submit();
+        });
     </script>
 </body>
 </html>
