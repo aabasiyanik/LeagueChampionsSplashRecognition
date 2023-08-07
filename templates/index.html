@@ -4,18 +4,22 @@
     <title>Image Classifier</title>
     <style>
         body {
-            background-color: #9F91CC;
+            background-color: #94ADD7;
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 20px;
         }
         h1 {
-            color: #333;
+        font-size: clamp(4rem, 5vmin, 7rem);
+        font-family: sans-serif;
+        color: #001C30;
         }
         p {
             font-size: 18px;
             margin-bottom: 10px;
+            color: #001C30;
+            font-weight: bold;
         }
         a {
             color: #5C4B99;
@@ -84,13 +88,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .predict-btn-link {
             display: flex;
             align-items: center;
-            border: 1px solid rgba(174, 152, 92, 0.45);
+            border: 1px solid rgba(252, 251, 247, 0.45);
             border-radius: 2rem;
             text-decoration: none;
             cursor: pointer;
@@ -117,16 +121,22 @@
         .predict-btn-circle p {
             font-size: 1.4rem;
             margin: 0;
+            color: #e7e7e7;
         }
 
         .predict-btn-rectangle {
             padding: 0.5rem 1.5rem;
             border: 3px solid rgba(125, 140, 154, 0.82);
             background: #2d3a46;
-            color: rgba(125, 140, 154, 0.82);
+            color: #e7e7e7;
             font-weight: 500;
             text-transform: uppercase;
             margin-left: 0.3rem;
+        }
+
+        ::selection {
+            background-color: #D1363A;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -156,8 +166,10 @@
         </button>
         
     </div>
-    <div><button onclick="window.location.href='/start_over'">Start Over</button></div>
-    
+
+    <div>
+        <button onclick="window.location.href='/start_over'">Start Over</button>
+    </div>
     <script>
         function validateForm() {
             var imageInput = document.getElementById("imageInput");
