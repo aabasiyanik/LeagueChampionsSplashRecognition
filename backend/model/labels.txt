@@ -1,163 +1,163 @@
-0 Aatrox
-1 Ahri
-2 Akali
-3 Alistar
-4 Amumu
-5 Anivia
-6 Annie
-7 Aphelios
-8 Ashe
-9 Aurelion Sol
-10 Azir
-11 Bard
-12 Bel'Veth
-13 Blitzcrank
-14 Brand
-15 Braum
-16 Caitlyn
-17 Camille
-18 Cassiopeia
-19 Cho'Gath
-20 Corki
-21 Darius
-22 Diana
-23 Dr. Mundo
-24 Draven
-25 Ekko
-26 Elise
-27 Evelynn
-28 Ezreal
-29 Fiddlesticks
-30 Fiora
-31 Fizz
-32 Galio
-33 Gangplank
-34 Garen
-35 Gnar
-36 Gragas
-37 Graves
-38 Gwen
-39 Hecarim
-40 Heimerdinger
-41 Illaoi
-42 Irelia
-43 Ivern
-44 Janna
-45 Jarvan IV
-46 Jax
-47 Jayce
-48 Jhin
-49 Jinx
-50 K'Sante
-51 Kai'Sa
-52 Kalista
-53 Karma
-54 Karthus
-55 Kassadin
-56 Katarina
-57 Kayle
-58 Kayn
-59 Kennen
-60 Kha'Zix
-61 Kindred
-62 Kled
-63 Kog'Maw
-64 LeBlanc
-65 Lee Sin
-66 Leona
-67 Lillia
-68 Lissandra
-69 Lucian
-70 Lulu
-71 Lux
-72 Malphite
-73 Malzahar
-74 Maokai
-75 Master Yi
-76 Milio
-77 Miss Fortune
-78 Wukong
-79 Mordekaiser
-80 Morgana
-81 Naafiri
-82 Nami
-83 Nasus
-84 Nautilus
-85 Neeko
-86 Nidalee
-87 Nilah
-88 Nocturne
-89 Nunu & Willump
-90 Olaf
-91 Orianna
-92 Ornn
-93 Pantheon
-94 Poppy
-95 Pyke
-96 Qiyana
-97 Quinn
-98 Rakan
-99 Rammus
-100 Rek'Sai
-101 Rell
-102 Renata Glasc
-103 Renekton
-104 Rengar
-105 Riven
-106 Rumble
-107 Ryze
-108 Samira
-109 Sejuani
-110 Senna
-111 Seraphine
-112 Sett
-113 Shaco
-114 Shen
-115 Shyvana
-116 Singed
-117 Sion
-118 Sivir
-119 Skarner
-120 Sona
-121 Soraka
-122 Swain
-123 Sylas
-124 Syndra
-125 Tahm Kench
-126 Taliyah
-127 Talon
-128 Taric
-129 Teemo
-130 Thresh
-131 Tristana
-132 Trundle
-133 Tryndamere
-134 Twisted Fate
-135 Twitch
-136 Udyr
-137 Urgot
-138 Varus
-139 Vayne
-140 Veigar
-141 Vel'Koz
-142 Vex
-143 Vi
-144 Viego
-145 Viktor
-146 Vladimir
-147 Volibear
-148 Warwick
-149 Xayah
-150 Xerath
-151 Xin Zhao
-152 Yasuo
-153 Yone
-154 Yorick
-155 Yuumi
-156 Zac
-157 Zed
-158 Zeri
-159 Ziggs
-160 Zilean
-161 Zoe
-162 Zyra
+Aatrox
+Ahri
+Akali
+Alistar
+Amumu
+Anivia
+Annie
+Aphelios
+Ashe
+Aurelion Sol
+Azir
+Bard
+Bel'Veth
+Blitzcrank
+Brand
+Braum
+Caitlyn
+Camille
+Cassiopeia
+Cho'Gath
+Corki
+Darius
+Diana
+Dr. Mundo
+Draven
+Ekko
+Elise
+Evelynn
+Ezreal
+Fiddlesticks
+Fiora
+Fizz
+Galio
+Gangplank
+Garen
+Gnar
+Gragas
+Graves
+Gwen
+Hecarim
+Heimerdinger
+Illaoi
+Irelia
+Ivern
+Janna
+Jarvan IV
+Jax
+Jayce
+Jhin
+Jinx
+K'Sante
+Kai'Sa
+Kalista
+Karma
+Karthus
+Kassadin
+Katarina
+Kayle
+Kayn
+Kennen
+Kha'Zix
+Kindred
+Kled
+Kog'Maw
+LeBlanc
+Lee Sin
+Leona
+Lillia
+Lissandra
+Lucian
+Lulu
+Lux
+Malphite
+Malzahar
+Maokai
+Master Yi
+Milio
+Miss Fortune
+Wukong
+Mordekaiser
+Morgana
+Naafiri
+Nami
+Nasus
+Nautilus
+Neeko
+Nidalee
+Nilah
+Nocturne
+Nunu & Willump
+Olaf
+Orianna
+Ornn
+Pantheon
+Poppy
+Pyke
+Qiyana
+Quinn
+Rakan
+Rammus
+Rek'Sai
+Rell
+Renata Glasc
+Renekton
+Rengar
+Riven
+Rumble
+Ryze
+Samira
+Sejuani
+Senna
+Seraphine
+Sett
+Shaco
+Shen
+Shyvana
+Singed
+Sion
+Sivir
+Skarner
+Sona
+Soraka
+Swain
+Sylas
+Syndra
+Tahm Kench
+Taliyah
+Talon
+Taric
+Teemo
+Thresh
+Tristana
+Trundle
+Tryndamere
+Twisted Fate
+Twitch
+Udyr
+Urgot
+Varus
+Vayne
+Veigar
+Vel'Koz
+Vex
+Vi
+Viego
+Viktor
+Vladimir
+Volibear
+Warwick
+Xayah
+Xerath
+Xin Zhao
+Yasuo
+Yone
+Yorick
+Yuumi
+Zac
+Zed
+Zeri
+Ziggs
+Zilean
+Zoe
+Zyra
