@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier</title>
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.png">
+    <style>
+        body {
+            background-color: #94ADD7;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+        font-size: clamp(4rem, 5vmin, 7rem);
+        font-family: sans-serif;
+        color: #001C30;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #001C30;
+            font-weight: bold;
+        }
+        a {
+            color: #5C4B99;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        button {
+            font-family: 'Marcellus SC', serif;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 10px 20px; 
+            background: #1e2328;
+            color: #cdbe91;
+            box-shadow: inset 0 0 2px #000000;
+            border-image: linear-gradient(to bottom, #c8aa6d, #7a5c29);
+            border-image-slice: 1;
+            border-width: 2px;
+            margin-top: 20px;
+        }
+        button:hover {
+            text-shadow: 0 0 5px #ffffff80;
+            box-shadow: 0 0 8px 0 #ffffff50;
+            background: linear-gradient(to bottom, #1e2328, #433d2b);
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        button:active {
+            text-shadow: none;
+            box-shadow: none;
+            color: #cdbe9130;
+        }
+        .image-button {
+            background: linear-gradient(to bottom right, #5C4B99, #3D246C);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+
+        .image-button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(92, 75, 153, 0.5), .125rem .125rem 1rem rgba(61, 36, 108, 0.5);
+        }
+
+        .image-button:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(92, 75, 153, 0.5), .125rem .125rem 1rem rgba(61, 36, 108, 0.5);
+        }
+
+        .predict-btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .predict-btn-link {
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(252, 251, 247, 0.45);
+            border-radius: 2rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .predict-btn-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0.5rem rgba(174, 152, 92, 0.45);
+        }
+
+        .predict-btn-circle {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ae985c;
+            border-radius: 50%;
+            background: #2d3a46;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .predict-btn-circle p {
+            font-size: 1.4rem;
+            margin: 0;
+            color: #e7e7e7;
+        }
+
+        .predict-btn-rectangle {
+            padding: 0.5rem 1.5rem;
+            border: 3px solid rgba(125, 140, 154, 0.82);
+            background: #2d3a46;
+            color: #e7e7e7;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-left: 0.3rem;
+        }
+
+        ::selection {
+            background-color: #D1363A;
+            color: #ffffff;
+        }
+        .left-fixed-image {
+            position: fixed;
+            left: 250px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            width: 200px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Classifier</h1>
+    <img src="./icons/cowbell.gif" alt="Cowbell" class="left-fixed-image">
+    <form action="/predict" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        
+        <label for="imageInput" class="image-button">
+            <input type="file" name="image" id="imageInput" style="display: none;">
+            Choose Image
+        </label>
+    </form>
+    <div>
+        <p>Champion: <span id="class"></span></p>
+        <p>Confidence Score: <span id="confidence"></span></p>
+        
+        
+    </div>
+    <div class="predict-btn-container">
+        <button type="button" class="predict-btn-link" id="styledPredictBtn">
+            <div class="predict-btn-circle">
+                <p>→</p>
+            </div>
+            <div class="predict-btn-rectangle">
+                Predict
+            </div>
+        </button>
+        
+    </div>
+
+    <audio id="audio" controls style="display: none;">
+        <source src="./icons/find_match_sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.getElementById('styledPredictBtn').addEventListener('click', function() {
+            var audio = document.getElementById('audio');
+            audio.play();
+        });
+    </script>
+</body>
+</html>
