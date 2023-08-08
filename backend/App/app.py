@@ -9,8 +9,8 @@ app = Flask(__name__)
 template_folder = os.path.join(os.path.dirname(__file__), '..', 'templates')
 app = Flask(__name__, template_folder=template_folder, static_url_path='')
 
-model = load_model("model\\keras_model.h5", compile=False)
-class_names = open("model\\labels.txt", "r").readlines()
+model = load_model("backend\\model\\keras_model.h5", compile=False)
+class_names = open("backend\\model\\labels.txt", "r").readlines()
 
 @app.route("/")
 def index():
@@ -38,7 +38,7 @@ def predict():
 
     prediction = model.predict(data)
     index = np.argmax(prediction)
-    class_name = class_names[index][2:]
+    class_name = class_names[index]
     confidence_score = float(prediction[0][index])
 
     return render_template("results.html", class_name=class_name, confidence_score=confidence_score)
