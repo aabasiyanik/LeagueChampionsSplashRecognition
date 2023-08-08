@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Set the template folder path relative to the backend directory
 template_folder = os.path.join(os.path.dirname(__file__), '..', 'templates')
-app = Flask(__name__, template_folder=template_folder, static_url_path='/static')
+app = Flask(__name__, template_folder=template_folder, static_url_path='')
 
 # Load the model and labels
 model = load_model("model\\keras_model.h5", compile=False)

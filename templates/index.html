@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Image Classifier</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
     <style>
         body {
             background-color: #94ADD7;
@@ -138,10 +139,20 @@
             background-color: #D1363A;
             color: #ffffff;
         }
+        .left-fixed-image {
+            position: fixed;
+            left: 250px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            width: 200px;
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
     <h1>Image Classifier</h1>
+    <img src="/cowbell.gif" alt="Cowbell" class="left-fixed-image">
     <form action="/predict" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         
         <label for="imageInput" class="image-button">
@@ -179,6 +190,17 @@
             }
             return true;
         }
+    </script>
+    <audio id="audio" controls style="display: none;">
+        <source src="/find_match_sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Play the audio when the Predict button is clicked -->
+    <script>
+        document.getElementById('styledPredictBtn').addEventListener('click', function() {
+            var audio = document.getElementById('audio');
+            audio.play();
+        });
     </script>
     <script>
         // Function to handle the styled "Predict" button click
