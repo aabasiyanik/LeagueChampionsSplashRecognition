@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier Results</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <style>
+        body {
+            background-color: #94ADD7;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+        font-size: clamp(4rem, 5vmin, 7rem);
+        font-family: sans-serif;
+        color: #001C30;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #001C30;
+            font-weight: bold;
+        }
+        a {
+            color: #5C4B99;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        button {
+            font-family: 'Marcellus SC', serif;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 10px 20px; 
+            background: #1e2328;
+            color: #cdbe91;
+            box-shadow: inset 0 0 2px #000000;
+            border-image: linear-gradient(to bottom, #c8aa6d, #7a5c29);
+            border-image-slice: 1;
+            border-width: 2px;
+            margin-top: 20px;
+        }
+        button:hover {
+            text-shadow: 0 0 5px #ffffff80;
+            box-shadow: 0 0 8px 0 #ffffff50;
+            background: linear-gradient(to bottom, #1e2328, #433d2b);
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        button:active {
+            text-shadow: none;
+            box-shadow: none;
+            color: #cdbe9130;
+        }
+
+        ::selection {
+            background-color: #D1363A;
+            color: #ffffff;
+        }
+        </style>
+    </head>
+<body>
+    <h1>Image Classifier</h1>
+    <p>Champion: {{ class_name }}</p>
+    <p>Confidence Score: {{ '%.2f' % (confidence_score * 100) }}%</p>
+</body>
+</html>
