@@ -148,24 +148,38 @@
             width: 200px;
             max-width: 100%;
         }
+
+        #uploadedImageContainer {
+            max-width: 227px;
+            max-height: 227px;
+            margin: 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #uploadedImageContainer img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
     </style>
 </head>
 <body>
     <h1>Image Classifier</h1>
     <img src="/cowbell.gif" alt="Cowbell" class="left-fixed-image">
-    <form action="/predict" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-        
+    <form action="/predict" method="post" enctype="multipart/form-data">
         <label for="imageInput" class="image-button">
             <input type="file" name="image" id="imageInput" style="display: none;">
             Choose Image
         </label>
     </form>
+    <div id="uploadedImageContainer"></div>
     <div>
         <p>Champion: <span id="class"></span></p>
         <p>Confidence Score: <span id="confidence"></span></p>
-        
-        
     </div>
+    
     <div class="predict-btn-container">
         <button type="button" class="predict-btn-link" id="styledPredictBtn">
             <div class="predict-btn-circle">
@@ -215,5 +229,24 @@
             form.submit();
         });
     </script>
+
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const imageContainer = document.getElementById('uploadedImageContainer');
+
+    imageInput.addEventListener('change', function(event) {
+        const selectedImage = event.target.files[0];
+        
+        if (selectedImage) {
+            const imageUrl = URL.createObjectURL(selectedImage);
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrl;
+            imgElement.alt = 'Uploaded Image';
+            
+            imageContainer.innerHTML = ''; // Clear previous content
+            imageContainer.appendChild(imgElement);
+        }
+    });
+</script>
 </body>
 </html>
